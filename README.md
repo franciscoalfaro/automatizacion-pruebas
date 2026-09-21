@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 Descripción del proyecto
+## Descripción del proyecto
 
 `ta_ex_7` es un proyecto Maven que implementa una **calculadora de servicios** (aplicación Java con servidor web embebido) sobre la cual se aplican tres niveles de pruebas automatizadas. El proyecto incluye un pipeline de Integración Continua (CI) en Jenkins y un pipeline de despliegue (CD) con estrategia Blue-Green y rollback.
 
@@ -32,7 +32,7 @@ ta_ex_7/
 
 ---
 
-## 🧪 Estrategia de pruebas
+## Estrategia de pruebas
 
 Se implementan **tres niveles** de pruebas automatizadas:
 
@@ -46,7 +46,7 @@ Se implementan **tres niveles** de pruebas automatizadas:
 
 ---
 
-## 🔀 Flujo de ramas (GitFlow)
+## Flujo de ramas (GitFlow)
 
 El repositorio sigue un flujo **GitFlow**:
 
@@ -59,7 +59,7 @@ Los cambios se integran mediante Pull Requests hacia `develop` y, una vez valida
 
 ---
 
-## ⚙️ Cómo ejecutar las pruebas
+## Cómo ejecutar las pruebas
 
 ### Requisitos previos
 - Java 17
@@ -94,7 +94,7 @@ java -jar target/ta_ex_7-1.0.0.jar 8081
 
 ---
 
-## 🔄 Pipelines
+## Pipelines
 
 ### Pipeline de CI (Jenkinsfile)
 
@@ -130,7 +130,7 @@ El despliegue utiliza una estrategia **Blue-Green**:
 
 ---
 
-## 📸 Evidencias
+## Evidencias
 
 ### Actividad 1 — Repositorio Git y configuración Maven
 
