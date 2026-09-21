@@ -139,3 +139,4 @@ Las capturas de ejecución del pipeline, del despliegue y del rollback se encuen
 ## 📄 Licencia
 
 Proyecto académico — Examen Final de Automatización de Pruebas.
+// nota de la feature
