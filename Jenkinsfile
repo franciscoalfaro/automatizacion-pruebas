@@ -47,8 +47,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo '=== Compilando el proyecto ==='
-                sh 'mvn -B clean compile'
+                echo '=== Compilando y empaquetando el proyecto ==='
+                sh 'mvn -B clean package -DskipTests'
             }
         }
 
