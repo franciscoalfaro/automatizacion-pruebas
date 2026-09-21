@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
@@ -50,14 +52,27 @@ class CalculadoraAcceptanceTest {
 
     @BeforeEach
     void abrirNavegador() {
-        // El driver de Edge se resuelve desde la ruta local configurada en
-        // la propiedad 'webdriver.edge.driver' (ver pom.xml / Jenkinsfile).
-        // Si no esta definida, Selenium Manager intenta resolverlo solo.
-        EdgeOptions opciones = new EdgeOptions();
-        opciones.addArguments("--headless=new");
-        opciones.addArguments("--no-sandbox");
-        opciones.addArguments("--disable-dev-shm-usage");
-        driver = new EdgeDriver(opciones);
+        // El navegador se selecciona segun el sistema operativo:
+        //   - Linux (Jenkins en Docker): Google Chrome
+        //   - Windows (ejecucion local): Microsoft Edge
+        // Ambos son navegadores Chromium y comparten las mismas opciones.
+        String so = System.getProperty("os.name").toLowerCase();
+        boolean esLinux = so.contains("linux");
+
+        if (esLinux) {
+            ChromeOptions opciones = new ChromeOptions();
+            opciones.addArguments("--headless=new");
+            opciones.addArguments("--no-sandbox");
+            opciones.addArguments("--disable-dev-shm-usage");
+            opciones.addArguments("--disable-gpu");
+            driver = new ChromeDriver(opciones);
+        } else {
+            EdgeOptions opciones = new EdgeOptions();
+            opciones.addArguments("--headless=new");
+            opciones.addArguments("--no-sandbox");
+            opciones.addArguments("--disable-dev-shm-usage");
+            driver = new EdgeDriver(opciones);
+        }
     }
 
     @AfterEach

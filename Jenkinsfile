@@ -18,9 +18,9 @@ pipeline {
     agent any
 
     tools {
-        // Requiere configurar 'maven-3.9' y 'jdk-17' en Jenkins > Global Tool Configuration
-        maven 'maven-3.9'
-        jdk 'jdk-17'
+        // Tool Maven configurado en Jenkins > Global Tool Configuration.
+        // El JDK se usa el del propio agente (Java 21 en el contenedor).
+        maven 'Maven39'
     }
 
     environment {
