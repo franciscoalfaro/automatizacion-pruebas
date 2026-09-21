@@ -17,11 +17,8 @@
 pipeline {
     agent any
 
-    tools {
-        // Tool Maven configurado en Jenkins > Global Tool Configuration.
-        // El JDK se usa el del propio agente (Java 21 en el contenedor).
-        maven 'Maven39'
-    }
+    // Maven y Java se toman del propio agente (Maven 3.9.9 + Java 21 en el contenedor).
+    // No se declara la tool 'maven' para no depender de la configuracion global de Jenkins.
 
     environment {
         APP_PORT      = '8081'
