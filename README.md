@@ -132,22 +132,59 @@ El despliegue utiliza una estrategia **Blue-Green**:
 
 ## 📸 Evidencias
 
-Las capturas que evidencian el correcto funcionamiento se encuentran en la carpeta
-[`capturas/`](capturas/) del repositorio:
+### Actividad 1 — Repositorio Git y configuración Maven
 
-| Captura | Contenido |
-|---|---|
-| `git.png` | Repositorio en GitHub |
-| `branches.png` | Flujo de ramas (GitFlow) |
-| `pom.png` | `pom.xml` con dependencias de pruebas |
-| `jenkinsfile.png` | `Jenkinsfile` versionado |
-| `pipeline.png` | Pipeline de CI en verde |
-| `pipeline2.png` | Log de ejecución del pipeline |
-| `pipeline3.png` | Resultado de los tests |
-| `test1.png`, `test2.png`, `test3.png` | Detalle de los resultados de pruebas |
+**Repositorio en GitHub:**
 
-Además, el informe del examen (`Francisco_Alfaro.docx`) incluye las capturas del
-despliegue en el ambiente de prueba y del rollback automático.
+![Repositorio en GitHub](capturas/git.png)
+
+**Flujo de ramas (GitFlow):**
+
+![Flujo de ramas](capturas/branches.png)
+
+**Configuración Maven (`pom.xml`):**
+
+![pom.xml](capturas/pom.png)
+
+### Actividad 2 — Pipeline de CI
+
+**Archivo `Jenkinsfile` versionado:**
+
+![Jenkinsfile](capturas/jenkinsfile.png)
+
+**Pipeline ejecutado con éxito:**
+
+![Pipeline en verde](capturas/pipeline.png)
+
+![Panel del pipeline](capturas/pipeline2.png)
+
+![Stages del pipeline](capturas/pipeline3.png)
+
+**Resultados de las pruebas automatizadas:**
+
+![Pruebas unitarias](capturas/test1.png)
+
+![Pruebas de integración](capturas/test2.png)
+
+![Pruebas de aceptación](capturas/test3.png)
+
+### Actividad 3 — Despliegue y rollback
+
+**Script de despliegue Blue-Green (`deploy.sh`):**
+
+![deploy.sh](capturas/deploysh.png)
+
+**Script de rollback (`rollback.sh`):**
+
+![rollback.sh](capturas/rollback.png)
+
+**Evidencia del despliegue en el ambiente de prueba:**
+
+![Despliegue exitoso](capturas/despliegue.png)
+
+**Evidencia del rollback automático:**
+
+![Rollback](capturas/rollback_test.png)
 
 ---
 
