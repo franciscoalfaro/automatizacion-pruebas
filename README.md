@@ -64,13 +64,13 @@ Los cambios se integran mediante Pull Requests hacia `develop` y, una vez valida
 ### Requisitos previos
 - Java 17
 - Maven 3.9+
-- Navegador Edge (para las pruebas de aceptación)
+- Navegador para las pruebas de aceptación (Chromium/Chrome en Linux, Edge en Windows)
 
 ### Comandos
 
 ```bash
-# Compilar el proyecto
-mvn clean compile
+# Compilar y empaquetar el jar ejecutable
+mvn clean package -DskipTests
 
 # Ejecutar solo las pruebas unitarias
 mvn test
@@ -101,7 +101,7 @@ java -jar target/ta_ex_7-1.0.0.jar 8081
 El pipeline declarativo incluye los siguientes stages:
 
 1. **Checkout** — obtiene el código desde Git.
-2. **Build** — compila con Maven (`mvn clean compile`).
+2. **Build** — compila y empaqueta el jar ejecutable (`mvn clean package -DskipTests`).
 3. **Unit Tests** — ejecuta las pruebas unitarias (`mvn test`).
 4. **Integration Tests** — ejecuta las pruebas de integración.
 5. **Acceptance Tests** — ejecuta las pruebas de aceptación con Selenium.
@@ -132,11 +132,25 @@ El despliegue utiliza una estrategia **Blue-Green**:
 
 ## 📸 Evidencias
 
-Las capturas de ejecución del pipeline, del despliegue y del rollback se encuentran documentadas en el informe del examen (`Francisco_Alfaro.docx`).
+Las capturas que evidencian el correcto funcionamiento se encuentran en la carpeta
+[`capturas/`](capturas/) del repositorio:
+
+| Captura | Contenido |
+|---|---|
+| `git.png` | Repositorio en GitHub |
+| `branches.png` | Flujo de ramas (GitFlow) |
+| `pom.png` | `pom.xml` con dependencias de pruebas |
+| `jenkinsfile.png` | `Jenkinsfile` versionado |
+| `pipeline.png` | Pipeline de CI en verde |
+| `pipeline2.png` | Log de ejecución del pipeline |
+| `pipeline3.png` | Resultado de los tests |
+| `test1.png`, `test2.png`, `test3.png` | Detalle de los resultados de pruebas |
+
+Además, el informe del examen (`Francisco_Alfaro.docx`) incluye las capturas del
+despliegue en el ambiente de prueba y del rollback automático.
 
 ---
 
 ## 📄 Licencia
 
 Proyecto académico — Examen Final de Automatización de Pruebas.
-// nota de la feature
