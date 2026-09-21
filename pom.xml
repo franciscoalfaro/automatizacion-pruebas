@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Proyecto: ta_ex_7
+  Examen Final - Automatizacion de Pruebas
+  Autor: Francisco Alfaro
+
+  Proyecto Maven con dependencias para pruebas automatizadas:
+    - JUnit 5 (pruebas unitarias y de integracion)
+    - Selenium WebDriver (pruebas de integracion y aceptacion)
+    - Surefire (ejecucion de pruebas unitarias)
+    - Failsafe (ejecucion de pruebas de integracion)
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.examen</groupId>
+    <artifactId>ta_ex_7</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>ta_ex_7</name>
+    <description>Examen Final de Automatizacion de Pruebas - Calculadora de servicios con pruebas unitarias, de integracion y de aceptacion</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- Versiones centralizadas -->
+        <junit.version>5.10.2</junit.version>
+        <selenium.version>4.21.0</selenium.version>
+        <surefire.version>3.2.5</surefire.version>
+        <failsafe.version>3.2.5</failsafe.version>
+    </properties>
+
+    <dependencies>
+        <!-- ===== Pruebas unitarias y de integracion ===== -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ===== Pruebas de integracion y aceptacion (UI) ===== -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Driver manager: resuelve automaticamente el driver del navegador -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.8.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- ===== Compilador ===== -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+
+            <!-- ===== Pruebas unitarias (mvn test) ===== -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <!-- Solo clases *Test.java (unitarias) -->
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                        <exclude>**/*AcceptanceTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- ===== Pruebas de integracion (mvn verify) ===== -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${failsafe.version}</version>
+                <configuration>
+                    <!-- Clases *IT.java (integracion) y *AcceptanceTest.java (aceptacion) -->
+                    <includes>
+                        <include>**/*IT.java</include>
+                        <include>**/*AcceptanceTest.java</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
