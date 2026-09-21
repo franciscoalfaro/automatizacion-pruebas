@@ -60,7 +60,13 @@ class CalculadoraAcceptanceTest {
         boolean esLinux = so.contains("linux");
 
         if (esLinux) {
+            if (new java.io.File("/usr/bin/chromedriver").exists()) {
+                System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+            }
             ChromeOptions opciones = new ChromeOptions();
+            if (new java.io.File("/usr/bin/chromium").exists()) {
+                opciones.setBinary("/usr/bin/chromium");
+            }
             opciones.addArguments("--headless=new");
             opciones.addArguments("--no-sandbox");
             opciones.addArguments("--disable-dev-shm-usage");

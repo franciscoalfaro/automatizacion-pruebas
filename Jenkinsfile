@@ -27,8 +27,9 @@ pipeline {
         APP_PORT      = '8081'
         STAGING_DIR   = 'staging'
         ARTIFACT      = 'target/ta_ex_7-1.0.0.jar'
-        // Ruta del driver de Edge (se sobrescribe en el agente si aplica)
-        EDGE_DRIVER   = "${WORKSPACE}/temp/edgedriver/msedgedriver.exe"
+        // El driver del navegador lo resuelve Selenium automaticamente:
+        //   - Linux (Jenkins en Docker): Chromium + ChromeDriver del sistema
+        //   - Windows (ejecucion local): Microsoft Edge
     }
 
     options {
